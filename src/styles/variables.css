@@ -1,0 +1,50 @@
+:root {
+  /* Measurements */
+  --unit: 1rem;
+  --padding: var(--unit);
+
+  /* Colors */
+  --white: #ffffff;
+  --black: #000000;
+
+  --dark-grey: #333333;
+  --mid-grey: #868686;
+  --lighter-grey: #a6a6a6;
+
+  --success: #1aac3e;
+  --error: #ab3e1a;
+  --warning: #febc3d;
+  --active: #0488ce;
+
+  /* Themed styles */
+  --body-bg: var(--black);
+  --text-color: var(--white);
+  --secondary-text-color: var(--lighter-grey);
+
+  /* Typography */
+  --arial: 'Arial';
+
+  --body-text: normal 500 0.75rem/1rem var(--arial);
+  --body-text-color: var(--text-color);
+
+  --large-body-text: normal 500 1rem/1.25rem var(--arial);
+  --large-body-text-color: var(--text-color);
+
+  --bold-text: normal 700 0.75rem/1rem var(--arial);
+  --bold-text-color: var(--text-color);
+
+  --large-bold-text: normal 700 1rem/1.25rem var(--arial);
+  --large-bold-text-color: var(--text-color);
+
+  --meta-text: normal 500 0.75rem/1rem var(--arial);
+  --meta-text-color: var(--secondary-text-color);
+
+  --small-meta-text: normal 500 0.625rem/1rem var(--arial);
+  --small-meta-text-color: var(--secondary-text-color);
+
+  --primary-heading: normal 700 1.5rem/2rem var(--arial);
+  --primary-heading-color: var(--text-color);
+
+  --secondary-heading: normal 700 1.25rem/1rem var(--arial);
+  --secondary-heading-color: var(--text-color);
+}
