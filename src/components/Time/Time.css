@@ -1,0 +1,5 @@
+.time {
+  display: block;
+  font: var(--primary-heading);
+  color: var(--primary-heading-color);
+}
