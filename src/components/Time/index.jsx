@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Time.css';
 import { SECOND } from '../../constants';
 
@@ -6,8 +6,6 @@ export const TimeFormat = {
   Time: 'time',
   Day: 'day',
 };
-
-let running = false;
 
 const options = {
   [TimeFormat.Day]: {
@@ -29,12 +27,13 @@ const getFormattedTime = (currentTime, format) => {
 const Time = ({ date, format }) => {
   const [currentTime, setCurrentTime] = useState(date || new Date());
 
-  if (!date && !running) {
-    setInterval(() => {
-      running = true;
-      setCurrentTime(new Date());
-    }, SECOND);
-  }
+  useEffect(() => {
+    if (!date) {
+      setInterval(() => {
+        setCurrentTime(new Date());
+      }, SECOND);
+    }
+  }, []);
 
   return (
     <time className={styles.time} dateTime={currentTime}>
