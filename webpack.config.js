@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const devMode = process.env.NODE_ENV !== "production";
 const SRC_DIR = __dirname + "/src";
@@ -66,6 +67,9 @@ module.exports = () => {
         },
       ],
     },
+    node: {
+      fs: "empty",
+    },
     resolve: {
       extensions: ["*", ".js", ".jsx"],
     },
@@ -78,6 +82,9 @@ module.exports = () => {
       new MiniCssExtractPlugin({
         filename: devMode ? "[name].css" : "[name].[hash].css",
         chunkFilename: devMode ? "[id].css" : "[id].[hash].css",
+      }),
+      new CopyPlugin({
+        patterns: [{ from: SRC_DIR + "/faceid/**/*", to: DIST_DIR }],
       }),
     ],
   };

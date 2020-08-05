@@ -1,17 +1,20 @@
-import React from "react";
-import { AppContextProvider } from "../appContext";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
-import Home from "./screens/Home";
-import Screen from "../components/Screen/Screen";
+import React, { useEffect } from 'react';
+import { AppContextProvider } from '../appContext';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import Home from './screens/Home';
+import Screen from '../components/Screen/Screen';
+import FaceID from '../components/FaceId';
 
 const App = () => {
   return (
     <AppContextProvider>
-      <Router>
-        <Switch>
-          <Screen path="/" component={Home} />
-        </Switch>
-      </Router>
+      <FaceID>
+        <Router>
+          <Switch>
+            <Screen path="/" component={Home} />
+          </Switch>
+        </Router>
+      </FaceID>
     </AppContextProvider>
   );
 };

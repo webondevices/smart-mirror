@@ -1,3 +1,4 @@
 export const Actions = {
-  Reset: "reset",
+  Reset: 'reset',
+  SetFaces: 'setfaces',
 };
