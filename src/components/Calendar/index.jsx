@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Calendar.css';
 import { Users } from '../../users';
+import useCalendar from '../../hooks/useCalendar';
 
 const Calendar = ({ user = Users.unknown }) => {
-  const [upcomingEvents, setUpcomingEvents] = useState('');
-
-  useEffect(() => {
-    const fetchCalendar = async () => {
-      const response = await fetch(`api/calendar?user=${user.email}`);
-      const { events } = await response.json();
-      setUpcomingEvents(events);
-    };
-    fetchCalendar();
-  }, []);
+  const upcomingEvents = useCalendar(user);
 
   console.log(upcomingEvents);
 
