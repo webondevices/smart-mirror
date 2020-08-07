@@ -10,7 +10,7 @@ const useCalendar = (user) => {
       setUpcomingEvents(events);
     };
     fetchCalendar();
-  }, []);
+  }, [user]);
 
   return upcomingEvents;
 };

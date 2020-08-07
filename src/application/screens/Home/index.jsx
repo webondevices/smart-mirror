@@ -4,6 +4,7 @@ import Weather, { WeatherFormat } from '../../../components/Weather';
 import Calendar from '../../../components/Calendar';
 import { AppContext } from '../../../appContext.js';
 import { Users } from '../../../users';
+import News from '../../../components/News';
 
 const Home = () => {
   const {
@@ -15,7 +16,8 @@ const Home = () => {
       <Time format={TimeFormat.Time} />
       <Time format={TimeFormat.Day} />
       <Weather format={WeatherFormat.CurrentAndHourly} />
-      <Calendar user={Users.matemarschalko} />
+      {/* <Calendar user={Users.matemarschalko} /> */}
+      <News />
       <span>
         {faces.length > 0
           ? `Good afternoon, ${Users[faces[0]].firstName}!`
