@@ -22,7 +22,7 @@ const getAccessToken = (oAuth2Client) => {
       oAuth2Client.getToken(code, (err, token) => {
         if (err) reject(`Error retrieving access token: ${err}`);
         oAuth2Client.setCredentials(token);
-        fs.writeFile(TOKEN_PATH);
+        fs.writeFile(TOKEN_PATH, token);
         resolve(oAuth2Client);
       });
     });
