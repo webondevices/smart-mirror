@@ -8,13 +8,13 @@ import FaceID from '../components/FaceId';
 const App = () => {
   return (
     <AppContextProvider>
-      <FaceID>
-        <Router>
-          <Switch>
-            <Screen path="/" component={Home} />
-          </Switch>
-        </Router>
-      </FaceID>
+      {/* <FaceID> */}
+      <Router>
+        <Switch>
+          <Screen path="/" component={Home} />
+        </Switch>
+      </Router>
+      {/* </FaceID> */}
     </AppContextProvider>
   );
 };

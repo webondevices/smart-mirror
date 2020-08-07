@@ -1,5 +1,5 @@
 import * as faceapi from 'face-api.js';
-import { Users } from '../../faceid/users';
+import { Users } from '../../users';
 
 const IMAGE_LOCATION = './src/faceid/labeled_images/';
 

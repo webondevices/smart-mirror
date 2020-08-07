@@ -1,5 +1,6 @@
-import { WeatherFormat } from './index';
-import { mockData } from './mock';
+import { useState, useEffect } from 'react';
+import { WeatherFormat } from '../components/Weather';
+import { mockData } from './mockForecast';
 
 // Settings
 const UNITS = 'metric';
@@ -83,3 +84,22 @@ export const getFormattedForecast = (format, forecast) => {
       };
   }
 };
+
+const useForecast = (format, updateRegularity) => {
+  const [forecast, setForecast] = useState({});
+
+  useEffect(() => {
+    async function fetchForecast() {
+      const apiUrl = getApiUrl(format);
+      const data = await getForecast(apiUrl);
+      const formattedForecast = getFormattedForecast(format, data);
+      setForecast(formattedForecast);
+    }
+    setInterval(fetchForecast, updateRegularity);
+    fetchForecast();
+  }, []);
+
+  return forecast;
+};
+
+export default useForecast;

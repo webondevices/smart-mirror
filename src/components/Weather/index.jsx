@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Weather.css';
 import WeatherIcon from '../WeatherIcon';
-import { getForecast, getApiUrl, getFormattedForecast } from './utils';
 import { HOUR } from '../../constants';
+import useForecast from '../../hooks/useForecast';
 
 export const WeatherFormat = {
   Current: 'current',
@@ -11,18 +11,7 @@ export const WeatherFormat = {
 };
 
 const Weather = ({ format }) => {
-  const [forecast, setForecast] = useState({});
-
-  useEffect(() => {
-    async function fetchForecast() {
-      const apiUrl = getApiUrl(format);
-      const data = await getForecast(apiUrl);
-      const formattedForecast = getFormattedForecast(format, data);
-      setForecast(formattedForecast);
-    }
-    setInterval(fetchForecast, HOUR);
-    fetchForecast();
-  }, []);
+  const forecast = useForecast(format, HOUR);
 
   // TODO create widget component
   // Display time in new component

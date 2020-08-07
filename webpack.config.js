@@ -18,8 +18,15 @@ module.exports = () => {
     devServer: {
       contentBase: DIST_DIR,
       hot: true,
-      port: 9000,
+      port: 8000,
       historyApiFallback: true,
+      proxy: {
+        "/api": {
+          target: "http://localhost:3000",
+          secure: false,
+          changeOrigin: true,
+        },
+      },
     },
     module: {
       rules: [

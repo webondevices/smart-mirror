@@ -5,10 +5,7 @@ import { AppContext } from '../../appContext.js';
 import { Actions } from '../../appActions';
 
 const FaceID = ({ children }) => {
-  const {
-    dispatch,
-    state: { faces },
-  } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const videoElement = useRef(null);
   let faceMatcher = null;
 
